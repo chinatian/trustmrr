@@ -33,7 +33,13 @@
 
 - **[trustmrr_analysis.md](./trustmrr_analysis.md)** - 初始概览分析
 
-- **[新应用分析_New_Applications.md](./新应用分析_New_Applications.md)** 🆕 最新更新
+- **[排名变化分析_Ranking_Changes.md](./排名变化分析_Ranking_Changes.md)** 🆕🔥 2025-11-06 更新
+  - 最新排名变化分析
+  - 离开榜单的应用分析
+  - 基于新数据的策略更新
+  - 2025 最佳机会重新评估
+
+- **[新应用分析_New_Applications.md](./新应用分析_New_Applications.md)** 🆕 2025-11-05
   - 13 个新应用详细分析（包括 $19M 的新冠军！）
 
 ### 10 大分类深度分析
@@ -272,8 +278,9 @@ const success = {
 - 创始人 Twitter - #buildinpublic 社区
 
 ### 更新记录
-- **2025-11-06** 🆕 新增 13 个应用分析，包括新冠军 Stack Influence ($19M)
-- **2025-11-05** 初始版本，分析 50 个应用
+- **2025-11-06 晚** 🔥 排名变化深度分析，策略更新，2025 最佳机会重估
+- **2025-11-06 早** 🆕 新增 13 个应用分析，包括新冠军 Stack Influence ($19M)
+- **2025-11-05** 🎉 初始版本，完整分析 50 个应用
 
 ### 致谢
 感谢所有在 TrustMRR 上公开分享收入的创始人：
