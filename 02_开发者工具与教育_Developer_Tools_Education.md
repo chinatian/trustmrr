@@ -693,6 +693,103 @@ const genZ = {
 
 ---
 
+## 10. DataFast 🆕
+**排名：#48 | 月收入：$17,262 | MRR：$12,897**  
+**创始人：Marc Louvion（ShipFast/CodeFast作者）**
+
+### 核心功能
+Revenue-first 分析工具（收入优先的分析）。
+
+### 商业模式
+- **订阅制**：$49-199/月
+- 目标客户：SaaS 创始人、增长团队
+
+### Marc Louvion 的产品矩阵
+```typescript
+const portfolio = {
+  shipFast: {
+    product: "代码模板",
+    revenue: "$18,631/月（总$985K）",
+    type: "一次性购买"
+  },
+  
+  codeFast: {
+    product: "编程课程",
+    revenue: "$20,305/月（总$698K）",
+    type: "课程"
+  },
+  
+  trustMRR: {
+    product: "收入数据库",
+    revenue: "$20,378/月",
+    type: "订阅"
+  },
+  
+  dataFast: {
+    product: "收入分析",
+    revenue: "$17,262/月",
+    type: "订阅"
+  },
+  
+  total: "约$76K/月（所有产品）",
+  
+  strategy: "构建产品生态系统"
+}
+```
+
+### 为什么 Revenue-first？
+```typescript
+const philosophy = {
+  traditional: "分析工具关注流量、转化率等",
+  datafast: "直接关注收入",
+  
+  why: {
+    clarity: "收入是最重要的指标",
+    simplicity: "减少噪音，专注本质",
+    actionable: "直接看到什么带来收入"
+  }
+}
+```
+
+### 独立开发者建议
+✅ **推荐度：⭐⭐⭐⭐**
+
+**学习点：**
+- ✅ 构建产品组合
+- ✅ 产品互相引流
+- ✅ 专注细分市场
+
+---
+
+## 11. MkSaaS 🆕
+**排名：#58 | 月收入：$12,590**
+
+### 核心功能
+Web 应用模板，帮助开发者更快启动应用。
+
+### 商业模式
+- **一次性购买**：$99-299
+- 类似 ShipFast
+
+### 独立开发者建议
+✅ **推荐度：⭐⭐⭐⭐**
+
+**为什么还能做？**
+- ShipFast 成功证明了市场
+- 可以差异化：
+  - 不同技术栈（Vue, Svelte, Django）
+  - 不同行业（SaaS, 电商, 教育）
+  - 不同风格（极简、企业级）
+
+**快速启动：**
+1. 选择技术栈
+2. 构建模板（4-6周）
+3. 录制教程视频
+4. Gumroad 上架
+5. ProductHunt 发布
+
+---
+
 ## 立即行动建议
 
 如果你是开发者，现在就可以开始做代码模板：
