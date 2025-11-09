@@ -14,7 +14,24 @@
 npm install
 ```
 
-### 步骤 2: 配置数据库
+### 步骤 2: 配置环境变量
+
+创建 `.env` 文件（参考 `.env.example`）：
+
+```env
+# 数据库连接
+DATABASE_URL="postgresql://username:password@localhost:5432/whatworthdoing?schema=public"
+
+# 应用 URL（用于 SEO 和 Open Graph，生产环境必须配置）
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+**重要**: 
+- 本地开发可以使用 `http://localhost:3000`
+- 生产环境必须配置正确的域名，如 `https://yourdomain.com`
+- 这个 URL 用于 SEO 元数据、Open Graph、Twitter Card 等
+
+### 步骤 3: 配置数据库
 
 #### 选项 A: 本地 PostgreSQL
 
@@ -23,12 +40,6 @@ npm install
 
 ```sql
 CREATE DATABASE whatworthdoing;
-```
-
-3. 更新 `.env` 文件:
-
-```env
-DATABASE_URL="postgresql://username:password@localhost:5432/whatworthdoing?schema=public"
 ```
 
 #### 选项 B: Vercel Postgres (推荐用于生产)
@@ -255,6 +266,127 @@ Next.js 14 App Router 自动缓存:
 ```typescript
 // 设置重新验证时间
 export const revalidate = 3600; // 1小时
+```
+
+## 🔍 SEO 优化
+
+本项目已内置完整的 SEO 优化功能：
+
+### 已实现的 SEO 功能
+
+✅ **动态元数据生成**
+- 每个页面自动生成优化的 title 和 description
+- 支持多语言元数据
+- 自动包含关键词
+
+✅ **Open Graph 标签**
+- Facebook、LinkedIn 等社交媒体分享优化
+- 自动生成预览图和描述
+
+✅ **Twitter Card**
+- Twitter 分享优化
+- 大图卡片支持
+
+✅ **结构化数据 (JSON-LD)**
+- Schema.org SoftwareApplication 标记
+- 面包屑导航标记
+- 有助于 Google 富媒体搜索结果
+
+✅ **语义化 HTML**
+- 使用 `<article>`, `<section>`, `<aside>` 等语义标签
+- 正确的 heading 层级
+- Microdata 属性支持
+
+✅ **多语言支持**
+- hreflang 标签
+- 规范 URL (canonical)
+- 四种语言版本 (中英日法)
+
+✅ **面包屑导航**
+- 改善用户体验
+- 提升 SEO 效果
+
+### SEO 配置清单
+
+在部署到生产环境前，请确保：
+
+1. ✅ 设置正确的 `NEXT_PUBLIC_APP_URL` 环境变量
+2. ✅ 为每个应用添加 logo 图片
+3. ✅ 配置应用的 metaTitle 和 metaDescription
+4. ✅ 添加 robots.txt 文件
+5. ✅ 添加 sitemap.xml (可以使用 Next.js 自动生成)
+6. ✅ 配置 Google Analytics 或其他分析工具
+7. ✅ 提交到 Google Search Console
+8. ✅ 生成并上传 favicon 和各种尺寸的应用图标
+
+### 创建 Sitemap
+
+在 `app/sitemap.ts` 创建动态 sitemap：
+
+```typescript
+import { MetadataRoute } from 'next';
+import { prisma } from '@/lib/prisma';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  
+  const apps = await prisma.app.findMany({
+    where: { isPublished: true },
+    select: { slug: true, updatedAt: true },
+  });
+
+  const appUrls = apps.flatMap((app) => [
+    {
+      url: `${baseUrl}/zh/apps/${app.slug}`,
+      lastModified: app.updatedAt,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/en/apps/${app.slug}`,
+      lastModified: app.updatedAt,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+  ]);
+
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/zh/apps`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    ...appUrls,
+  ];
+}
+```
+
+### 创建 robots.txt
+
+在 `app/robots.ts` 创建：
+
+```typescript
+import { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: ['/api/', '/admin/'],
+    },
+    sitemap: `${baseUrl}/sitemap.xml`,
+  };
+}
 ```
 
 ## 🔒 安全建议

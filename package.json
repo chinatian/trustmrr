@@ -12,7 +12,8 @@
     "db:studio": "prisma studio",
     "db:generate": "prisma generate",
     "import:data": "tsx scripts/import-data.ts",
-    "import:docs": "tsx scripts/import-from-docs.ts"
+    "import:docs": "tsx scripts/import-from-docs.ts",
+    "import:docs:full": "tsx scripts/import-docs-enhanced.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.7.1",

@@ -30,7 +30,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href={`/${currentLocale}`} className="flex items-center space-x-2">
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              什么值得做
+            WhatWorks
             </div>
           </Link>
 
