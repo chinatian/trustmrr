@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "apps": "アプリ一覧",
+    "categories": "カテゴリー",
+    "about": "について",
+    "featured": "注目のアプリ"
+  },
+  "common": {
+    "search": "アプリを検索...",
+    "loading": "読み込み中...",
+    "noResults": "結果が見つかりません",
+    "viewDetails": "詳細を見る",
+    "backToList": "一覧に戻る",
+    "filterBy": "フィルター",
+    "sortBy": "並び替え",
+    "all": "すべて"
+  },
+  "app": {
+    "revenue": "総収入",
+    "mrr": "月間経常収益",
+    "monthlyRevenue": "月間収入",
+    "ranking": "ランキング",
+    "category": "カテゴリー",
+    "techDifficulty": "技術難易度",
+    "developmentTime": "開発期間",
+    "weeks": "週間",
+    "recommendationLevel": "推奨度",
+    "stars": "つ星",
+    "founder": "創業者",
+    "website": "ウェブサイト",
+    "coreFeatures": "主な機能",
+    "businessModel": "ビジネスモデル",
+    "techStack": "技術スタック",
+    "whyWorthDoing": "なぜやる価値があるのか",
+    "developerAnalysis": "開発者分析",
+    "mvpPlan": "MVP開発計画",
+    "costAnalysis": "コスト分析",
+    "marketingStrategies": "マーケティング戦略",
+    "pros": "長所",
+    "cons": "短所",
+    "suitableFor": "適している人",
+    "expectedRevenue": "予想収入",
+    "profitMargin": "利益率"
+  },
+  "category": {
+    "marketing-growth": "マーケティング＆グロースツール",
+    "developer-tools": "開発者ツール＆教育",
+    "ai-content": "AI＆コンテンツ生成",
+    "ecommerce-payments": "Eコマース＆決済",
+    "niche-markets": "ニッチ垂直市場",
+    "business-services": "ビジネスサービス",
+    "community-membership": "コミュニティ＆メンバーシップ",
+    "fintech-trading": "フィンテック＆トレーディング",
+    "infrastructure-technical": "インフラ＆技術サービス",
+    "miscellaneous": "その他のアプリ"
+  },
+  "filter": {
+    "allCategories": "すべてのカテゴリー",
+    "highRevenue": "高収入",
+    "fastGrowth": "急成長",
+    "easyToStart": "始めやすい",
+    "highlyRecommended": "強く推奨"
+  },
+  "sort": {
+    "rankingAsc": "ランキング昇順",
+    "revenueDesc": "収入降順",
+    "mrrDesc": "MRR降順",
+    "recommendationDesc": "推奨度降順"
+  },
+  "home": {
+    "hero": {
+      "title": "やる価値のあるプロジェクトを発見",
+      "subtitle": "実際の収入データに基づいた、世界中の独立開発者向けの深い分析",
+      "cta": "アプリを探索"
+    },
+    "stats": {
+      "apps": "アプリ",
+      "categories": "カテゴリー",
+      "totalRevenue": "総収入"
+    },
+    "featured": {
+      "title": "注目のアプリ",
+      "subtitle": "独立開発者が学ぶべき最も価値のあるプロジェクト"
+    },
+    "categories": {
+      "title": "カテゴリーを閲覧",
+      "subtitle": "業界とタイプ別にアプリを探索"
+    }
+  },
+  "about": {
+    "title": "私たちについて",
+    "description": "What Worth Doingは独立開発者に焦点を当てたプロジェクト分析プラットフォームで、実際の収入データに基づいて、深いビジネスモデル分析、技術スタックの推奨、起業ガイドを提供します。"
+  }
+}
+

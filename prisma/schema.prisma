@@ -1,0 +1,486 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== 应用主表 ====================
+model App {
+  id                String    @id @default(cuid())
+  
+  // 基本信息（多语言）
+  name              String
+  nameEn            String?
+  nameJa            String?
+  nameFr            String?
+  nameZh            String?
+  
+  slug              String    @unique
+  url               String?
+  logo              String?
+  
+  // 描述信息（多语言）
+  shortDescription     String    @db.Text
+  shortDescriptionEn   String?   @db.Text
+  shortDescriptionJa   String?   @db.Text
+  shortDescriptionFr   String?   @db.Text
+  shortDescriptionZh   String?   @db.Text
+  
+  fullDescription      String    @db.Text
+  fullDescriptionEn    String?   @db.Text
+  fullDescriptionJa    String?   @db.Text
+  fullDescriptionFr   String?   @db.Text
+  fullDescriptionZh    String?   @db.Text
+  
+  // 核心功能（JSON）
+  coreFeatures         Json?
+  coreFeaturesEn       Json?
+  coreFeaturesJa       Json?
+  coreFeaturesFr       Json?
+  coreFeaturesZh       Json?
+  
+  // 财务数据
+  totalRevenue      Decimal   @db.Decimal(12, 2)
+  mrr               Decimal?  @db.Decimal(12, 2)
+  monthlyRevenue    Decimal?  @db.Decimal(12, 2)
+  currency          String    @default("USD")
+  
+  // 排名信息
+  ranking           Int?
+  rankingChange     Int?
+  previousRanking   Int?
+  
+  // 分类和标签
+  categoryId        String
+  category          Category  @relation(fields: [categoryId], references: [id])
+  tags              Tag[]     @relation("AppTags")
+  
+  // 关联表
+  businessModel     BusinessModel?
+  techStack         TechStack?
+  developerAnalysis DeveloperAnalysis?
+  mvpPlan           MvpPlan?
+  costAnalysis      CostAnalysis?
+  marketingStrategies MarketingStrategy[]
+  
+  // 技术难度（1-5星）
+  techDifficulty    Int       @default(3)
+  
+  // 成功因素（JSON）
+  successFactors       Json?
+  successFactorsEn     Json?
+  successFactorsJa     Json?
+  successFactorsFr     Json?
+  successFactorsZh     Json?
+  
+  // 为什么值得做（多语言）
+  whyWorthDoing        String?   @db.Text
+  whyWorthDoingEn      String?   @db.Text
+  whyWorthDoingJa      String?   @db.Text
+  whyWorthDoingFr      String?   @db.Text
+  whyWorthDoingZh      String?   @db.Text
+  
+  // 创始人
+  founderId         String?
+  founder           Founder?  @relation(fields: [founderId], references: [id])
+  
+  // 时间信息
+  foundedDate       DateTime?
+  launchedDate      DateTime?
+  
+  // SEO
+  metaTitle         String?
+  metaDescription   String?   @db.Text
+  metaKeywords      String[]
+  
+  // 状态
+  isPublished       Boolean   @default(true)
+  isFeatured        Boolean   @default(false)
+  isNewApp          Boolean   @default(false)
+  
+  // 数据来源
+  sourceUrl         String?
+  dataUpdatedAt     DateTime  @default(now())
+  
+  // 统计
+  viewCount         Int       @default(0)
+  favoriteCount     Int       @default(0)
+  
+  // 关联数据
+  revenueHistory    RevenueHistory[]
+  userFavorites     UserFavorite[]
+  userReviews       UserReview[]
+  comparisons       AppComparison[] @relation("ComparisonApps")
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([categoryId])
+  @@index([ranking])
+  @@index([totalRevenue])
+  @@index([mrr])
+  @@index([isPublished])
+  @@index([isFeatured])
+}
+
+// ==================== 分类表 ====================
+model Category {
+  id              String   @id @default(cuid())
+  
+  name            String
+  nameEn          String?
+  nameJa          String?
+  nameFr          String?
+  nameZh          String?
+  
+  slug            String   @unique
+  
+  description     String?  @db.Text
+  descriptionEn   String?  @db.Text
+  descriptionJa   String?  @db.Text
+  descriptionFr   String?  @db.Text
+  descriptionZh   String?  @db.Text
+  
+  icon            String?
+  color           String?
+  
+  order           Int      @default(0)
+  isActive        Boolean  @default(true)
+  
+  appCount        Int      @default(0)
+  
+  apps            App[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([slug])
+  @@index([order])
+}
+
+// ==================== 标签表 ====================
+model Tag {
+  id              String   @id @default(cuid())
+  
+  name            String   @unique
+  nameEn          String?
+  nameJa          String?
+  nameFr          String?
+  nameZh          String?
+  
+  slug            String   @unique
+  type            String?
+  
+  apps            App[]    @relation("AppTags")
+  
+  usageCount      Int      @default(0)
+  
+  createdAt       DateTime @default(now())
+  
+  @@index([slug])
+  @@index([type])
+}
+
+// ==================== 商业模式表 ====================
+model BusinessModel {
+  id              String   @id @default(cuid())
+  appId           String   @unique
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  pricingModel    String
+  
+  pricingDetails     Json
+  pricingDetailsEn   Json?
+  pricingDetailsJa   Json?
+  pricingDetailsFr   Json?
+  pricingDetailsZh   Json?
+  
+  targetCustomers    String   @db.Text
+  targetCustomersEn  String?  @db.Text
+  targetCustomersJa  String?  @db.Text
+  targetCustomersFr  String?  @db.Text
+  targetCustomersZh  String?  @db.Text
+  
+  marketSize         String?  @db.Text
+  marketSizeEn       String?  @db.Text
+  marketSizeJa       String?  @db.Text
+  marketSizeFr       String?  @db.Text
+  marketSizeZh       String?  @db.Text
+  
+  revenueCalculation Json?
+  
+  profitMargin    Int?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ==================== 技术栈表 ====================
+model TechStack {
+  id              String   @id @default(cuid())
+  appId           String   @unique
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  frontend        Json?
+  backend         Json?
+  database        Json?
+  infrastructure  Json?
+  tools           Json?
+  
+  fullStack          String?  @db.Text
+  fullStackEn        String?  @db.Text
+  fullStackJa        String?  @db.Text
+  fullStackFr        String?  @db.Text
+  fullStackZh        String?  @db.Text
+  
+  difficultyDetails     String?  @db.Text
+  difficultyDetailsEn   String?  @db.Text
+  difficultyDetailsJa   String?  @db.Text
+  difficultyDetailsFr   String?  @db.Text
+  difficultyDetailsZh   String?  @db.Text
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ==================== 独立开发者分析表 ====================
+model DeveloperAnalysis {
+  id                    String   @id @default(cuid())
+  appId                 String   @unique
+  app                   App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  recommendationLevel   Int      @default(3)
+  
+  recommendationReason     String   @db.Text
+  recommendationReasonEn   String?  @db.Text
+  recommendationReasonJa   String?  @db.Text
+  recommendationReasonFr   String?  @db.Text
+  recommendationReasonZh   String?  @db.Text
+  
+  pros        Json
+  prosEn      Json?
+  prosJa      Json?
+  prosFr      Json?
+  prosZh      Json?
+  
+  cons        Json?
+  consEn      Json?
+  consJa      Json?
+  consFr      Json?
+  consZh      Json?
+  
+  suitableFor     String?  @db.Text
+  suitableForEn   String?  @db.Text
+  suitableForJa   String?  @db.Text
+  suitableForFr   String?  @db.Text
+  suitableForZh   String?  @db.Text
+  
+  developmentWeeks  Int?
+  
+  expectedRevenue   Json?
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+// ==================== MVP开发计划表 ====================
+model MvpPlan {
+  id              String   @id @default(cuid())
+  appId           String   @unique
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  totalWeeks      Int?
+  
+  phases             Json
+  phasesEn           Json?
+  phasesJa           Json?
+  phasesFr           Json?
+  phasesZh           Json?
+  
+  coreFeaturesNeeded    Json
+  coreFeaturesNeededEn  Json?
+  coreFeaturesNeededJa  Json?
+  coreFeaturesNeededFr  Json?
+  coreFeaturesNeededZh  Json?
+  
+  quickStartGuide     String?  @db.Text
+  quickStartGuideEn   String?  @db.Text
+  quickStartGuideJa   String?  @db.Text
+  quickStartGuideFr   String?  @db.Text
+  quickStartGuideZh   String?  @db.Text
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ==================== 成本分析表 ====================
+model CostAnalysis {
+  id              String   @id @default(cuid())
+  appId           String   @unique
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  developmentCost    Decimal?  @db.Decimal(10, 2)
+  
+  monthlyCosts       Json?
+  
+  yearlyEstimate     Decimal?  @db.Decimal(10, 2)
+  
+  profitMargin       Int?
+  
+  costBreakdown     String?   @db.Text
+  costBreakdownEn   String?   @db.Text
+  costBreakdownJa   String?   @db.Text
+  costBreakdownFr   String?   @db.Text
+  costBreakdownZh   String?   @db.Text
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+// ==================== 营销策略表 ====================
+model MarketingStrategy {
+  id              String   @id @default(cuid())
+  appId           String
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  channel         String
+  
+  description     String   @db.Text
+  descriptionEn   String?  @db.Text
+  descriptionJa   String?  @db.Text
+  descriptionFr   String?  @db.Text
+  descriptionZh   String?  @db.Text
+  
+  priority        Int      @default(3)
+  
+  createdAt       DateTime @default(now())
+  
+  @@index([appId])
+}
+
+// ==================== 创始人表 ====================
+model Founder {
+  id              String   @id @default(cuid())
+  
+  name            String
+  username        String?  @unique
+  
+  bio             String?  @db.Text
+  bioEn           String?  @db.Text
+  bioJa           String?  @db.Text
+  bioFr           String?  @db.Text
+  bioZh           String?  @db.Text
+  
+  avatar          String?
+  
+  twitterUrl      String?
+  linkedinUrl     String?
+  websiteUrl      String?
+  
+  totalRevenue    Decimal? @db.Decimal(12, 2)
+  appCount        Int      @default(0)
+  
+  apps            App[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ==================== 收入历史表 ====================
+model RevenueHistory {
+  id              String   @id @default(cuid())
+  appId           String
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  date            DateTime
+  totalRevenue    Decimal  @db.Decimal(12, 2)
+  mrr             Decimal? @db.Decimal(12, 2)
+  monthlyRevenue  Decimal? @db.Decimal(12, 2)
+  ranking         Int?
+  
+  createdAt       DateTime @default(now())
+  
+  @@unique([appId, date])
+  @@index([appId])
+  @@index([date])
+}
+
+// ==================== 用户表 ====================
+model User {
+  id              String   @id @default(cuid())
+  
+  email           String   @unique
+  name            String?
+  avatar          String?
+  
+  preferredLocale String   @default("zh")
+  
+  favorites       UserFavorite[]
+  reviews         UserReview[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([email])
+}
+
+// ==================== 用户收藏表 ====================
+model UserFavorite {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appId           String
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  createdAt       DateTime @default(now())
+  
+  @@unique([userId, appId])
+  @@index([userId])
+  @@index([appId])
+}
+
+// ==================== 用户评论表 ====================
+model UserReview {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appId           String
+  app             App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  
+  rating          Int
+  comment         String?  @db.Text
+  
+  isPublished     Boolean  @default(false)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([appId])
+  @@index([isPublished])
+}
+
+// ==================== 应用对比表 ====================
+model AppComparison {
+  id              String   @id @default(cuid())
+  
+  name            String
+  nameEn          String?
+  nameJa          String?
+  nameFr          String?
+  nameZh          String?
+  
+  description     String?  @db.Text
+  
+  apps            App[]    @relation("ComparisonApps")
+  
+  createdBy       String?
+  viewCount       Int      @default(0)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+

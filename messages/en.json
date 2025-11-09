@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Home",
+    "apps": "Apps",
+    "categories": "Categories",
+    "about": "About",
+    "featured": "Featured"
+  },
+  "common": {
+    "search": "Search apps...",
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "viewDetails": "View Details",
+    "backToList": "Back to List",
+    "filterBy": "Filter",
+    "sortBy": "Sort",
+    "all": "All"
+  },
+  "app": {
+    "revenue": "Total Revenue",
+    "mrr": "MRR",
+    "monthlyRevenue": "Monthly Revenue",
+    "ranking": "Ranking",
+    "category": "Category",
+    "techDifficulty": "Tech Difficulty",
+    "developmentTime": "Development Time",
+    "weeks": "weeks",
+    "recommendationLevel": "Recommendation",
+    "stars": "stars",
+    "founder": "Founder",
+    "website": "Website",
+    "coreFeatures": "Core Features",
+    "businessModel": "Business Model",
+    "techStack": "Tech Stack",
+    "whyWorthDoing": "Why Worth Doing",
+    "developerAnalysis": "Developer Analysis",
+    "mvpPlan": "MVP Plan",
+    "costAnalysis": "Cost Analysis",
+    "marketingStrategies": "Marketing Strategies",
+    "pros": "Pros",
+    "cons": "Cons",
+    "suitableFor": "Suitable For",
+    "expectedRevenue": "Expected Revenue",
+    "profitMargin": "Profit Margin"
+  },
+  "category": {
+    "marketing-growth": "Marketing & Growth Tools",
+    "developer-tools": "Developer Tools & Education",
+    "ai-content": "AI & Content Generation",
+    "ecommerce-payments": "E-commerce & Payments",
+    "niche-markets": "Niche Vertical Markets",
+    "business-services": "Business Services",
+    "community-membership": "Community & Membership",
+    "fintech-trading": "Fintech & Trading",
+    "infrastructure-technical": "Infrastructure & Technical",
+    "miscellaneous": "Miscellaneous"
+  },
+  "filter": {
+    "allCategories": "All Categories",
+    "highRevenue": "High Revenue",
+    "fastGrowth": "Fast Growth",
+    "easyToStart": "Easy to Start",
+    "highlyRecommended": "Highly Recommended"
+  },
+  "sort": {
+    "rankingAsc": "Ranking Asc",
+    "revenueDesc": "Revenue Desc",
+    "mrrDesc": "MRR Desc",
+    "recommendationDesc": "Recommendation Desc"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Projects Worth Building",
+      "subtitle": "In-depth analysis for indie developers based on real revenue data",
+      "cta": "Explore Apps"
+    },
+    "stats": {
+      "apps": "Apps",
+      "categories": "Categories",
+      "totalRevenue": "Total Revenue"
+    },
+    "featured": {
+      "title": "Featured Apps",
+      "subtitle": "The most valuable projects for indie developers to learn from"
+    },
+    "categories": {
+      "title": "Browse Categories",
+      "subtitle": "Explore apps by industry and type"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "WhatWorthDoing is a project analysis platform focused on indie developers, providing in-depth business model analysis, tech stack recommendations, and startup guides based on real revenue data."
+  }
+}
+

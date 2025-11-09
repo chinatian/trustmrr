@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "apps": "Applications",
+    "categories": "Catégories",
+    "about": "À propos",
+    "featured": "En vedette"
+  },
+  "common": {
+    "search": "Rechercher des applications...",
+    "loading": "Chargement...",
+    "noResults": "Aucun résultat trouvé",
+    "viewDetails": "Voir les détails",
+    "backToList": "Retour à la liste",
+    "filterBy": "Filtrer",
+    "sortBy": "Trier",
+    "all": "Tous"
+  },
+  "app": {
+    "revenue": "Revenu Total",
+    "mrr": "MRR",
+    "monthlyRevenue": "Revenu Mensuel",
+    "ranking": "Classement",
+    "category": "Catégorie",
+    "techDifficulty": "Difficulté Technique",
+    "developmentTime": "Temps de Développement",
+    "weeks": "semaines",
+    "recommendationLevel": "Recommandation",
+    "stars": "étoiles",
+    "founder": "Fondateur",
+    "website": "Site Web",
+    "coreFeatures": "Fonctionnalités Principales",
+    "businessModel": "Modèle Commercial",
+    "techStack": "Stack Technique",
+    "whyWorthDoing": "Pourquoi Ça Vaut Le Coup",
+    "developerAnalysis": "Analyse Développeur",
+    "mvpPlan": "Plan MVP",
+    "costAnalysis": "Analyse des Coûts",
+    "marketingStrategies": "Stratégies Marketing",
+    "pros": "Avantages",
+    "cons": "Inconvénients",
+    "suitableFor": "Convient Pour",
+    "expectedRevenue": "Revenu Attendu",
+    "profitMargin": "Marge Bénéficiaire"
+  },
+  "category": {
+    "marketing-growth": "Outils de Marketing et Croissance",
+    "developer-tools": "Outils pour Développeurs et Éducation",
+    "ai-content": "IA et Génération de Contenu",
+    "ecommerce-payments": "E-commerce et Paiements",
+    "niche-markets": "Marchés Verticaux de Niche",
+    "business-services": "Services aux Entreprises",
+    "community-membership": "Communauté et Adhésion",
+    "fintech-trading": "Fintech et Trading",
+    "infrastructure-technical": "Infrastructure et Services Techniques",
+    "miscellaneous": "Divers"
+  },
+  "filter": {
+    "allCategories": "Toutes les Catégories",
+    "highRevenue": "Revenu Élevé",
+    "fastGrowth": "Croissance Rapide",
+    "easyToStart": "Facile à Démarrer",
+    "highlyRecommended": "Fortement Recommandé"
+  },
+  "sort": {
+    "rankingAsc": "Classement Croissant",
+    "revenueDesc": "Revenu Décroissant",
+    "mrrDesc": "MRR Décroissant",
+    "recommendationDesc": "Recommandation Décroissante"
+  },
+  "home": {
+    "hero": {
+      "title": "Découvrez des Projets Qui Valent Le Coup",
+      "subtitle": "Analyse approfondie pour les développeurs indépendants basée sur des données de revenus réelles",
+      "cta": "Explorer les Apps"
+    },
+    "stats": {
+      "apps": "Applications",
+      "categories": "Catégories",
+      "totalRevenue": "Revenu Total"
+    },
+    "featured": {
+      "title": "Applications en Vedette",
+      "subtitle": "Les projets les plus précieux pour les développeurs indépendants"
+    },
+    "categories": {
+      "title": "Parcourir les Catégories",
+      "subtitle": "Explorer les applications par industrie et type"
+    }
+  },
+  "about": {
+    "title": "À Propos",
+    "description": "WhatWorthDoing est une plateforme d'analyse de projets axée sur les développeurs indépendants, fournissant une analyse approfondie des modèles commerciaux, des recommandations de stack technique et des guides de démarrage basés sur des données de revenus réelles."
+  }
+}
+

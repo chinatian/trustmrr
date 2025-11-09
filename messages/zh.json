@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "首页",
+    "apps": "应用列表",
+    "categories": "分类",
+    "about": "关于",
+    "featured": "精选应用"
+  },
+  "common": {
+    "search": "搜索应用...",
+    "loading": "加载中...",
+    "noResults": "没有找到结果",
+    "viewDetails": "查看详情",
+    "backToList": "返回列表",
+    "filterBy": "筛选",
+    "sortBy": "排序",
+    "all": "全部"
+  },
+  "app": {
+    "revenue": "总收入",
+    "mrr": "月经常性收入",
+    "monthlyRevenue": "月收入",
+    "ranking": "排名",
+    "category": "分类",
+    "techDifficulty": "技术难度",
+    "developmentTime": "开发周期",
+    "weeks": "周",
+    "recommendationLevel": "推荐度",
+    "stars": "星",
+    "founder": "创始人",
+    "website": "官网",
+    "coreFeatures": "核心功能",
+    "businessModel": "商业模式",
+    "techStack": "技术栈",
+    "whyWorthDoing": "为什么值得做",
+    "developerAnalysis": "独立开发者分析",
+    "mvpPlan": "MVP开发计划",
+    "costAnalysis": "成本分析",
+    "marketingStrategies": "营销策略",
+    "pros": "优点",
+    "cons": "缺点",
+    "suitableFor": "适合人群",
+    "expectedRevenue": "预期收入",
+    "profitMargin": "利润率"
+  },
+  "category": {
+    "marketing-growth": "营销与增长工具",
+    "developer-tools": "开发者工具与教育",
+    "ai-content": "AI与内容生成",
+    "ecommerce-payments": "电商与支付",
+    "niche-markets": "垂直细分市场",
+    "business-services": "商业服务平台",
+    "community-membership": "社区与会员平台",
+    "fintech-trading": "金融科技与交易",
+    "infrastructure-technical": "基础设施与技术服务",
+    "miscellaneous": "其他应用"
+  },
+  "filter": {
+    "allCategories": "所有分类",
+    "highRevenue": "高收入",
+    "fastGrowth": "快速增长",
+    "easyToStart": "易于上手",
+    "highlyRecommended": "强烈推荐"
+  },
+  "sort": {
+    "rankingAsc": "排名升序",
+    "revenueDesc": "收入降序",
+    "mrrDesc": "MRR降序",
+    "recommendationDesc": "推荐度降序"
+  },
+  "home": {
+    "hero": {
+      "title": "发现值得做的独立项目",
+      "subtitle": "基于真实收入数据，为全球独立开发者提供深度分析和启发",
+      "cta": "探索应用"
+    },
+    "stats": {
+      "apps": "应用",
+      "categories": "分类",
+      "totalRevenue": "总收入"
+    },
+    "featured": {
+      "title": "精选应用",
+      "subtitle": "最值得独立开发者学习和参考的项目"
+    },
+    "categories": {
+      "title": "浏览分类",
+      "subtitle": "按行业和类型探索应用"
+    }
+  },
+  "about": {
+    "title": "关于我们",
+    "description": "什么值得做是一个专注于独立开发者的项目分析平台，基于真实的收入数据，为全球开发者提供深度的商业模式分析、技术栈建议和启动指南。"
+  }
+}
+
